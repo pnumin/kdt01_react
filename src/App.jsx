@@ -1,8 +1,8 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 // import Hello from "./01/Hello"
-import MyClock from './02/MyClock';
- 
+// import MyClock from './02/MyClock';
+import MyDiv1 from './03/MyDiv1';
 import { FaHome } from "react-icons/fa";
 function App() {
   return (
@@ -29,8 +29,8 @@ function App() {
                       overflow-y-auto">
 
         {/* <Hello />   */}
-        <MyClock />
-
+        {/* <MyClock /> */}
+        <MyDiv1 />
       </main>
       <footer className="w-full min-h-20 bg-lime-900
                          px-10 text-md text-lime-50 font-bold
