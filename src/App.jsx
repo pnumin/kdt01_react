@@ -1,28 +1,47 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-import { BsArrowThroughHeartFill } from "react-icons/bs"
-
+import Hello from "./01/Hello"
+import HelloDate from "./01/HelloDate"
+import { FaHome } from "react-icons/fa";
 function App() {
   return (
-    <div className="w-full h-full">
-      <div className="w-full flex justify-center items-center p-10">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="font-bold text-4xl">Vite + React</h1>
-      <div className="card">
-        <p>
-          부산대학교 KDT 1기 김경민
-        </p>
-      </div>
-      <p className="w-full flex justify-center items-center text-fuchsia-600 text-6xl">
-        <BsArrowThroughHeartFill />
-      </p>
+    <div className="w-full xl:w-8/10 h-screen mx-auto 
+                    flex flex-col">
+      <header className="w-full h-20 bg-amber-50
+                         px-10
+                         flex justify-between items-center">
+
+        <div className="text-4xl font-bold text-amber-700 flex">
+          PNU KDT10 
+          <div className="flex text-sm items-center mx-5">
+            <img src={reactLogo} alt="react" className="w-8" /> + 
+            <img src={viteLogo} alt="vite" className="w-8" />
+          </div>
+        </div>
+        <div className="text-3xl font-bold text-black">
+          <FaHome />
+        </div>
+      </header>
+      <main className="w-full flex-grow
+                      flex flex-col justify-start items-center
+                      overflow-y-auto">
+
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+        <Hello /> 
+      </main>
+      <footer className="w-full min-h-20 bg-amber-900
+                         px-10 text-md text-amber-50 font-bold
+                         flex justify-center items-center">
+         [K-Digital 부산대 25-1회차] AI 데이터 분석 풀스택 웹 개발자 양성과정                 
+      </footer>
     </div>
   )
 }
