@@ -2,7 +2,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 // import Hello from "./01/Hello"
 // import MyClock from './02/MyClock';
-import MyDiv1 from './03/MyDiv1';
+// import MyDiv1 from './03/MyDiv1';
+import MyList from './04/MyList';
 import { FaHome } from "react-icons/fa";
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
 
         {/* <Hello />   */}
         {/* <MyClock /> */}
-        <MyDiv1 />
+        {/* <MyDiv1 /> */}
+        <MyList />
       </main>
       <footer className="w-full min-h-20 bg-lime-900
                          px-10 text-md text-lime-50 font-bold
