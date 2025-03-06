@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="w-full xl:w-8/10 h-screen mx-auto 
                     flex flex-col">
-      <header className="w-full h-20 bg-lime-50
+      <header className="w-full min-h-20 bg-lime-50
                          px-10
                          flex justify-between items-center">
 
