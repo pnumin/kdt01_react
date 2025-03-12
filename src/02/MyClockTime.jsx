@@ -19,7 +19,7 @@ export default function MyClockTime() {
                     text-center font-bold
                     text-2xl">
       <p className="pst">
-      현재시각 : 
+      현재시각 
       </p>
       <p className={styles.pst}>
         {currentTime.toLocaleTimeString()}  

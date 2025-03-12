@@ -1,14 +1,14 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 // import Hello from "./01/Hello"
-import MyClock from './02/MyClock';
+// import MyClock from './02/MyClock';
 // import MyDiv1 from './03/MyDiv1';
 // import MyList from './04/MyList';
 //import Lotto from './05/Lotto';
 // import FoodMain from './06/FoodMain'; 
 // import MyToggle from './07/MyToggle';
 // import MyEffect from './08/MyEffect';
-
+import BoxOffice from './09/BoxOffice';
 
 import { FaHome } from "react-icons/fa";
 function App() {
@@ -35,7 +35,7 @@ function App() {
                       flex flex-col justify-start items-center
                       overflow-y-auto">
 
-        <MyClock />
+        <BoxOffice />
       </main>
       <footer className="w-full min-h-20 bg-lime-900
                          px-10 text-md text-lime-50 font-bold

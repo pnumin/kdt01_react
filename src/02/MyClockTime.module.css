@@ -1,5 +1,10 @@
 .pst {
-  color : white ;
-  background-color: blue;
+  color : blue ;
+  background-color: aliceblue;
   font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: xx-large;
 }
