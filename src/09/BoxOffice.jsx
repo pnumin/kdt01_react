@@ -5,6 +5,7 @@ import { FaArrowUp, FaArrowDown } from "react-icons/fa6";
 export default function BoxOffice() {
   //화면에 랜더링 될 상태 변수
   const [tags, setTags] = useState([]);
+  const [info, setInfo] = useState('');
 
   //어제날짜가져오기 
   const getYesterday = () => {
@@ -24,6 +25,14 @@ export default function BoxOffice() {
     return (year + '-' + month + '-' + day);
   }
 
+  //영화정보
+  const handleShow = (item) => {
+    console.log(item)
+    setInfo(`[${item.rankOldAndNew}](${item.movieCd}) ${item.movieNm} 
+              상영스크린수 ${item.scrnCnt}, 상영횟수 ${item.showCnt}`);
+  }
+
+
   //일일 박스 오피스 정보 가져오기
   const getFetchData = async () => {
     const mvApiKey = import.meta.env.VITE_APP_MV_KEY;
@@ -40,11 +49,13 @@ export default function BoxOffice() {
     console.log(boxList)
 
     let tm = boxList.map(item => <tr  key={item.movieCd}
-                                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                      onClick={() => handleShow(item)}
+                                      className="bg-white border-b border-gray-200
+                                                 hover:bg-gray-50 hover:cursor-pointer hover:text-blue-800">
                                       <td className="w-4 p-4">
                                         {item.rank}
                                       </td>
-                                      <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                      <td scope="row" className="px-6 py-4">
                                         {item.movieNm}
                                       </td>
                                       <td className="px-6 py-4 text-right">
@@ -84,16 +95,16 @@ export default function BoxOffice() {
             <td className="px-6 py-3">
               영화명
             </td>
-            <th className="px-6 py-3">
+            <th className="px-6 py-3 w-1/7">
               매출액
             </th>
-            <th className="px-6 py-3">
+            <th className="px-6 py-3 w-1/7">
               관객수
             </th>
-            <th className="px-6 py-3">
+            <th className="px-6 py-3 w-1/7">
               누적매출액
             </th>
-            <th className="px-6 py-3">
+            <th className="px-6 py-3 w-1/7">
               누적관객수
             </th>
             <th className="px-6 py-3 w-24">
@@ -104,6 +115,14 @@ export default function BoxOffice() {
         <tbody>
           {tags}
         </tbody>
+        <tfoot>
+          <tr className="text-md h-14 font-bold text-gray-900 bg-gray-100
+                            border-y-2">
+            <td colSpan="7" className="text-center">
+              {info}
+            </td>
+          </tr>
+        </tfoot>
       </table>
 
     </div>
