@@ -8,7 +8,8 @@ import viteLogo from '/vite.svg'
 // import FoodMain from './06/FoodMain'; 
 // import MyToggle from './07/MyToggle';
 // import MyEffect from './08/MyEffect';
-import BoxOffice from './09/BoxOffice';
+// import BoxOffice from './09/BoxOffice';
+import Traffic from './10/Traffic';
 
 import { FaHome } from "react-icons/fa";
 function App() {
@@ -35,7 +36,7 @@ function App() {
                       flex flex-col justify-start items-center
                       overflow-y-auto">
 
-        <BoxOffice />
+        <Traffic />
       </main>
       <footer className="w-full min-h-20 bg-lime-900
                          px-10 text-md text-lime-50 font-bold
