@@ -35,7 +35,7 @@ export default function Traffic() {
   }, []);
 
   useEffect(() => {
-    if (tdata.length <= 0) return;
+    if (tdata.length == 0) return;
     // console.log("tdata ", tdata);
 
     //대분류 추출 
