@@ -24,10 +24,10 @@ export default function Traffic() {
     const resp = await fetch(url);
     const data = await resp.json();
 
-    console.log(url)
+    // console.log(url)
 
     setTdata(data.data);
-    console.log("fetch", tdata)
+    // console.log("fetch", tdata)
   }
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Traffic() {
 
   useEffect(() => {
     if (tdata.length <= 0) return;
-    console.log("tdata ", tdata);
+    // console.log("tdata ", tdata);
 
     //대분류 추출 
     let tm = tdata.map(item => item["사고유형대분류"]);
@@ -49,21 +49,51 @@ export default function Traffic() {
 
   // 대분류가 선택이 될때
   useEffect(() => {
-    console.log("selC1", selC1)
+    // console.log("selC1", selC1)
+    setC2([]) ;
+    setSelC2('') ;
+    setInfo('');
 
     //사고유형  추출 
     let tm = tdata.filter(item => item["사고유형대분류"] == selC1)
-                  .map(item => item["사고유형"]);
+      .map(item => item["사고유형"]);
     //중복제거 
     tm = [...new Set(tm)];
-    console.log("tm ", tm);
+    // console.log("tm ", tm);
 
     setC2(tm);
   }, [selC1]);
 
+  // 대분류와 사고유형이 선택 될때
+  useEffect(() => {
+    if ( !selC1 || !selC2 ) return ;
+
+    let tm = tdata.filter(item => item["사고유형대분류"] == selC1
+                                  && item["사고유형"] == selC2);
+    tm = tm[0];
+    // console.log("selC2", tm['사고건수'])
+
+      //결과 내용
+    let infoKey = ["사고건수", "사망자수", "중상자수", "경상자수", "부상신고자수"];
+    tm = infoKey.map(item => <div key={item} className="w-1/5 my-3 flex "> 
+                              <span className="w-3/5 bg-lime-800 text-white font-bold
+                                               inline-flex justify-center items-center
+                                               p-1 text-center">
+                                {item}
+                              </span> 
+                              <span className="w-2/5 text-lime-800 font-bold
+                                               inline-flex justify-center items-center
+                                               p-1 text-center">
+                                {parseInt(tm[item]).toLocaleString()}
+                              </span>
+                             </div>)
+   
+    // console.log("info", tm)  
+    setInfo(tm) ;
+  }, [selC2]);
+
   return (
     <div className="w-full flex flex-col justify-center items-center">
-    
       {c1 && <TrafficNav title="대분류"
         ct={c1}
         selc={selC1}
@@ -74,9 +104,9 @@ export default function Traffic() {
         selc={selC2}
         setSelC={setSelC2} />}
 
-        <div>
-          {info}
-        </div>
+      <div className="w-11/12 flex justify-center items-center bg-lime-100">
+        {info}
+      </div>
     </div>
   )
 }
