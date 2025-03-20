@@ -1,15 +1,11 @@
 //table참고 : https://flowbite.com/docs/components/tables/
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { FaArrowUp, FaArrowDown } from "react-icons/fa6"; 
 
 export default function BoxOffice() {
   //화면에 랜더링 될 상태 변수
   const [tags, setTags] = useState([]);
   const [info, setInfo] = useState('');
-  const [dt, setDt] = useState();
-
-  //날짜 선택 
-  const refDt = useRef();
 
   //어제날짜가져오기 
   const getYesterday = () => {
@@ -36,20 +32,14 @@ export default function BoxOffice() {
               상영스크린수 ${item.scrnCnt}, 상영횟수 ${item.showCnt}`);
   }
 
-  //날짜가 변경이 되면
-  const handleChange = () => {
-    setInfo('') ;
-    setDt(refDt.current.value) ;
-  }
 
   //일일 박스 오피스 정보 가져오기
   const getFetchData = async () => {
-    console.log("dt =", dt)
     const mvApiKey = import.meta.env.VITE_APP_MV_KEY;
-    let tmdt = dt.replaceAll('-', '');
+    let dt = getYesterday().replaceAll('-', '');
 
     let url = `https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?`;
-    url = `${url}key=${mvApiKey}&targetDt=${tmdt}`;
+    url = `${url}key=${mvApiKey}&targetDt=${"20250301"}`;
 
     //console.log(url)
     const resp = await fetch(url);
@@ -90,28 +80,11 @@ export default function BoxOffice() {
 
   //컴포넌트가 실행될때 한번 fetch
   useEffect(() => {
-    setDt(getYesterday()) ;
-    refDt.current.max = getYesterday() ;
-  }, []);
-
-  useEffect(()=>{
-    if (!dt ) return ;
-    refDt.current.value = dt ;
     getFetchData();
-  } , [dt]) ;
-
+  }, []);
 
   return (
     <div className="w-11/12 ">
-      <div className="w-full text-sm text-right my-2">
-        <span className="inline-flex mr-2 text-md font-bold">
-          날짜선택 
-        </span>
-        <input type="date" ref={refDt}
-               className="p-2 border"
-               onChange={handleChange}
-               id = "dt" />
-      </div>
       <table className="w-full text-sm text-left rtl:text-right text-gray-500">
         <thead className="text-md font-bold text-gray-900 bg-gray-50
                             border-b-2">
