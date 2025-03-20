@@ -1,11 +1,11 @@
 export default function TailCard({ title, subtitle, imgurl, kws }) {
   return (
-    <div className="max-w-sm bg-white border
+    <div className="max-w-sm bg-white border 
                    border-gray-200 rounded-lg shadow-sm">
       <div>
         <img className="rounded-t-lg" src={imgurl} alt={title} />
       </div>
-      <div className="p-5">
+      <div className="p-5 flex flex-col justify-end">
         <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
           {title}
         </h1>
