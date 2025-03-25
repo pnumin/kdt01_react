@@ -62,25 +62,25 @@ export default function BoxOffice() {
                                       onClick={() => handleShow(item)}
                                       className="bg-white border-b border-gray-200
                                                  hover:bg-gray-50 hover:cursor-pointer hover:text-blue-800">
-                                      <td className="w-4 p-4">
+                                      <td className="w-4 p-3 text-center">
                                         {item.rank}
                                       </td>
-                                      <td scope="row" className="px-6 py-4">
+                                      <td scope="row" className="px-2 py-3">
                                         {item.movieNm}
                                       </td>
-                                      <td className="px-6 py-4 text-right">
+                                      <td className="px-2 py-3 text-right">
                                         {parseInt(item.salesAmt).toLocaleString()}
                                       </td>
-                                      <td className="px-6 py-4 text-right">
+                                      <td className="px-2 py-3 text-right">
                                         {parseInt(item.audiCnt).toLocaleString()}
                                       </td>
-                                      <td className="px-6 py-4 text-right">
+                                      <td className="px-2 py-3 text-right">
                                         {parseInt(item.salesAcc).toLocaleString()}
                                       </td>
-                                      <td className="px-6 py-4 text-right">
+                                      <td className="px-2 py-3 text-right">
                                         {parseInt(item.audiAcc).toLocaleString()}
                                       </td>
-                                      <td className="px-6 py-4 text-center inline-flex justify-center items-center">
+                                      <td className="px-2 py-3 text-center inline-flex justify-center items-center">
                                         { parseInt(item.rankInten) > 0 ? <span className="text-red-600"><FaArrowUp /></span> 
                                           : parseInt(item.rankInten) < 0 ? <span className="text-blue-600"><FaArrowDown /></span> : ''}
                                         { item.rankInten == 0 ? '-' : Math.abs(item.rankInten)}                                    </td>
@@ -119,22 +119,22 @@ export default function BoxOffice() {
             <td className="p-4 w-16">
               순위
             </td>
-            <td className="px-6 py-3">
+            <td className="px-6 py-2">
               영화명
             </td>
-            <th className="px-6 py-3 w-1/7">
+            <th className="px-6 py-2 w-1/7">
               매출액
             </th>
-            <th className="px-6 py-3 w-1/7">
+            <th className="px-6 py-2 w-1/7">
               관객수
             </th>
-            <th className="px-6 py-3 w-1/7">
+            <th className="px-6 py-2 w-1/7">
               누적매출액
             </th>
-            <th className="px-6 py-3 w-1/7">
+            <th className="px-6 py-2 w-1/7">
               누적관객수
             </th>
-            <th className="px-6 py-3 w-24">
+            <th className="px-6 py-2 w-24">
               증감률
             </th>
           </tr>
@@ -143,7 +143,7 @@ export default function BoxOffice() {
           {tags}
         </tbody>
         <tfoot>
-          <tr className="text-md h-14 font-bold text-gray-900 bg-gray-100
+          <tr className="text-md h-12 font-bold text-gray-900 bg-gray-100
                             border-y-2">
             <td colSpan="7" className="text-center">
               {info}
