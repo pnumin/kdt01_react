@@ -41,7 +41,8 @@ export default function Fcst() {
                   flex justify-center items-center  my-10">
       일기예보 선택
     </h1>
-    <div className="w-10/12 grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <form   onSubmit={(e) => e.preventDefault()}
+            className="w-10/12 grid grid-cols-1 lg:grid-cols-2 gap-4">
       <input type="date"
              ref = {refDt}
              className="bg-gray-50 border border-gray-300
@@ -59,7 +60,7 @@ export default function Fcst() {
       <TailButton caption ="단기 예보"
                   color = "blue"
                   onClick = {() => handleClick("단기예보")} />
-    </div>
+    </form>
     </>
   )
 }
