@@ -1,4 +1,4 @@
-export default function TailSelect({id, refSel, ops, handleChange}) {
+export default function TailSelect({id, refSel, ops, handleChange}) { 
   return (
     <select id={id} 
             onChange={handleChange}
