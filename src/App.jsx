@@ -16,6 +16,7 @@ import Festival from './13/Festival';
 // import RouteMain from './14/RouteMain';
 import Fcst from './15/Fcst';
 import FcstList from './15/FcstList';
+import MyDiv1 from './16/MyDiv1';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -86,6 +87,13 @@ function App() {
               일기예보
             </Link>
           </li>
+          <li>
+            <Link to="/mydiv1" className='inline-flex px-4 py-2 m-1 font-bold
+                                         rounded-lg
+                                         hover:cursor-pointer hover:bg-amber-700 hover:text-white'>
+              전역상태 
+            </Link>
+          </li>
         </ul>
         <div className="text-3xl font-bold text-black">
           <Link to="/"><FaHome /></Link>
@@ -104,6 +112,7 @@ function App() {
           <Route path='/festival' element={<Festival />} />
           <Route path='/fcst' element={<Fcst />} />
           <Route path='/fcstlist' element={<FcstList />} />
+          <Route path='/mydiv1' element={<MyDiv1 />} />
         </Routes>
       </main>
       <footer className="w-full min-h-20 bg-lime-900
