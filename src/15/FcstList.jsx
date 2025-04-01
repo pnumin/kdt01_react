@@ -16,7 +16,13 @@ export default function FcstList() {
   const gubun = sParams.get("gubun");
   const x = sParams.get("x");
   const y = sParams.get("y");
-
+  
+  //코드
+  const sky = {'1' : '맑음(☀️)' , '3' : '구름많음(☁️)' , '4':'흐림(🌥️)'} ;
+  const pty = {'0' : '없음(0)', '1' :'비(1)', 
+                '2' : '비/눈(2)', '3':'눈(3)',
+                '4' : '소나기(4)', '5' : '빗방울(5)', 
+                '6' : '빗방울눈날림(6)', '7' : '눈날림(7)' } 
   //Ref
   const refItem = useRef();
   const opsItem = getcode.filter(item => item["예보구분"] == gubun)
@@ -46,7 +52,10 @@ export default function FcstList() {
                             {item.fcstTime.slice(0, 2)}:{item.fcstTime.slice(2, 4)}
                           </th>
                           <th className="px-6 py-1 text-center">
-                            {item.fcstValue} {unit}
+                            { code == 'SKY' ? `${sky[item.fcstValue]}` 
+                                            : code == "PTY" ? `${pty[item.fcstValue]}`
+                                                            :`${item.fcstValue}${unit}`}
+                             
                           </th>
                         </tr>);
 
@@ -77,7 +86,9 @@ export default function FcstList() {
   useEffect(() => {
     if (!tdata) return;
     console.log(tdata);
+    handleChange();
   }, [tdata]);
+
   return (
     <>
       <div className="w-10/12 grid grid-cols-1 lg:grid-cols-2 gap-4 mt-10">
