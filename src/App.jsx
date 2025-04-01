@@ -16,7 +16,7 @@ import Festival from './13/Festival';
 // import RouteMain from './14/RouteMain';
 import Fcst from './15/Fcst';
 import FcstList from './15/FcstList';
-import MyDiv1 from './17/MyDiv1';
+import MyDiv1 from './18/MyDiv1';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
